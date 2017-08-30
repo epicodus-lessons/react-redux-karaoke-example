@@ -1,0 +1,21 @@
+.header {
+  min-height: 100px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #B0B0B0;
+  color: white;
+}
+
+.appTitle {
+  width: 60%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.appTitle h1 {
+  font-size: 4em;
+  color: #150019;
+  margin: 0;
+}

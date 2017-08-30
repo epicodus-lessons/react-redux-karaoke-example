@@ -1,0 +1,24 @@
+.songSearch {
+  width: 40%;
+}
+
+.songSearch form {
+  padding-right: 1em;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.songSearch form input {
+  height: 35%;
+  text-align: center;
+  font-size: 1em;
+}
+
+.songSearch form button {
+  height: 25%;
+  border-radius: none;
+  background-color: #150019;
+  color: #FCFCFC;
+}

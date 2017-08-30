@@ -1,0 +1,11 @@
+.app {
+  height: 100vh;
+  min-height: 100%;
+}
+
+.devider {
+  margin: 0;
+  border: 5px solid #FCFCFC;
+  border-right: 0;
+  border-left: 0;
+}
