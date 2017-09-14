@@ -21,7 +21,7 @@ const songsById = (state = defaultState.songsById, action) => {
       return newState;
     case types.RESTART_SONG:
       song = state[action.songId];
-      const startPhrase = song.songArray[0];
+      startPhrase = song.songArray[0];
       newSong = Object.assign({}, song, {
         currentPhrase: startPhrase,
         arrayPosition: 0
