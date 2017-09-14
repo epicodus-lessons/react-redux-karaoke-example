@@ -5,6 +5,7 @@ const songsById = (state = defaultState.songsById, action) => {
   let song;
   let newSong;
   let newState;
+  let startPhrase;
   switch (action.type) {
     case types.NEXT_LINE:
       song = state[action.songId];
