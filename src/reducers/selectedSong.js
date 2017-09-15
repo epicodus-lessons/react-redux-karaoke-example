@@ -9,7 +9,8 @@ const selectedSong = (state = defaultState.selectedSong, action) => {
       newState = Object.assign({}, state, {
         selectedSong: action.songId
       });
-      return newState;
+      selectedSong = action.songId;
+      return selectedSong;
     default:
       return state;
   }
