@@ -1,10 +1,10 @@
-import { combineReducers } from "redux";
-import selectedSong from "./selectedSong";
-import songsById from "./songsById";
+import { combineReducers } from 'redux';
+import songChangeReducer from './songChangeReducer';
+import lyricChangeReducer from './lyricChangeReducer';
 
 const rootReducer = combineReducers({
-  selectedSong,
-  songsById
+  currentSongId: songChangeReducer,
+  songsById: lyricChangeReducer
 });
 
 export default rootReducer;

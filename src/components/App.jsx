@@ -1,18 +1,13 @@
-import React from "react";
-import SongDisplay from "./SongDisplay";
-import Header from "./Header";
-import styles from "./../styles/App.css";
+import React from 'react';
+import SongDisplay from './SongDisplay';
+import Header from './Header';
 
 function App(){
   return (
-    <div className = {styles.app}>
+    <div>
       <Header />
-      <div>
-        <hr className = {styles.devider}/>  
-      </div>
-      <div className = "container">
-        <SongDisplay />
-      </div>
+      <hr/>
+      <SongDisplay />
     </div>
   );
 }

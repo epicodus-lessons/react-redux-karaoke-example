@@ -1,13 +1,10 @@
-import React from "react";
-import SongSearch from "./SongSearch";
-import styles from "./../styles/Header.css";
+import React from 'react';
+import SongSearch from './SongSearch';
 
 function Header(){
   return (
-    <div className = {styles.header}>
-      <div className = {styles.appTitle}>
-        <h1>singer</h1>
-      </div>
+    <div>
+      <h1>Singer</h1>
       <SongSearch />
     </div>
   );

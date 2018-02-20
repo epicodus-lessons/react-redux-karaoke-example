@@ -1,47 +1,46 @@
 import constants from "./../../src/constants";
-import * as actions from "./../../src/actions";
-import selectedSong from "./../../src/reducers/selectedSong";
-import songsById from "./../../src/reducers/songsById";
+import songChangeReducer from './../../src/reducers/songChangeReducer';
+import lyricChangeReducer from './../../src/reducers/lyricChangeReducer';
+import rootReducer from './../../src/reducers/';
+import { createStore } from 'redux';
 
-describe("Karaoke App", () => {
-  const { defaultState, types } = constants;
+describe('Karaoke App', () => {
+  const { initialState, types } = constants;
+  const store = createStore(rootReducer, initialState);
 
-  describe("Songs By Title Reducer", () => {
-    const songData = defaultState.songsById[defaultState.selectedSong];
-    it('should return default state', () => {
-      expect(songsById(defaultState.songsById, { type: null }))
-      .toEqual(defaultState.songsById);
+  describe('lyricChangeReducer', () => {
+    it('Should accept and return initial state.', () => {
+      expect(lyricChangeReducer(initialState.songsById, { type: null })).toEqual(initialState.songsById);
     });
 
-    it("should update chorus phrase", () => {
-      const newSongData = songsById(defaultState.songsById, actions.nextLine(defaultState.selectedSong))[defaultState.selectedSong];
-      expect(newSongData.currentPhrase)
-      .toEqual(songData.songArray[1]);
+    it('Should update currently-displayed lyric of song', () => {
+      expect(lyricChangeReducer(initialState.songsById, { type: 'NEXT_LYRIC', currentSongId: 2 })[2].arrayPosition).toEqual(initialState.songsById[2].arrayPosition + 1);
     });
 
-    it("should restart song", () => {
-      const newSongsById = songsById(defaultState.songsById, actions.nextLine(defaultState.selectedSong));
-      expect(songsById(newSongsById, actions.restartSong(defaultState.selectedSong)))
-      .toEqual(defaultState.songsById);
+    it('Should restart song', () => {
+      expect(lyricChangeReducer(initialState.songsById, { type: 'RESTART_SONG', currentSongId: 1 })[1].arrayPosition).toEqual(0);
     });
-
   });
 
-  describe("Select Song Reducer", () => {
-    const initialState = Object.assign({}, defaultState, {
-      selectedSong: 1
+  describe('songChangeReducer', () => {
+    it('Should accept and return initial state.', () => {
+      expect(songChangeReducer(initialState, { type: null })).toEqual(initialState);
     });
 
-    it('should return default state', () => {
-      expect(selectedSong(initialState, { type: null }))
-      .toEqual(initialState);
+    it('Should change selectedSong.', () => {
+      expect(songChangeReducer(initialState, { type: 'CHANGE_SONG', newSelectedSongId: 1 })).toEqual(1);
+    });
+  });
+
+  describe('rootReducer', () => {
+    it('Should accept and return initial state.', () => {
+      expect(rootReducer(initialState, { type: null })).toEqual(initialState);
     });
 
-    it('should change selectedSong', () => {
-      expect(selectedSong(initialState, actions.selectSong(defaultState.selectedSong)))
-      .toEqual(defaultState);
+    it('Should contain logic from both reducers.', () => {
+      expect(store.getState().currentSongId).toEqual(songChangeReducer(undefined, { type: null }));
+      expect(store.getState().songsById).toEqual(lyricChangeReducer(undefined, { type: null }));
     });
-
   });
 
 });
