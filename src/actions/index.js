@@ -9,3 +9,8 @@ export const restartSong = (currentSongId) => ({
   type: types.RESTART_SONG,
   currentSongId
 });
+
+export const changeSong = (newSelectedSongId) => ({
+  type: types.CHANGE_SONG,
+  newSelectedSongId
+});
