@@ -19,7 +19,7 @@ describe('Karaoke App', () => {
     });
 
     it('Should restart song', () => {
-      expect(lyricChangeReducer(initialState.songsById, { type: 'RESTART_SONG', currentSongId: 1 })[1].arrayPosition).toEqual(0);
+      expect(lyricChangeReducer(initialState.songsById, actions.restartSong(1))[1].arrayPosition).toEqual(0);
     });
   });
 
