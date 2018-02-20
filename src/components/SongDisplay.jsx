@@ -14,11 +14,7 @@ const SongDisplay = ({ dispatch, song }) => {
       <div onClick={e => {
         e.preventDefault();
         if(!(arrayPosition === songArray.length - 1)) {
-          action = {
-            type: 'NEXT_LYRIC',
-            currentSongId: id
-          };
-          dispatch(action);
+          dispatch(nextLyric(id));
         } else {
           action = {
             type: 'RESTART_SONG',
