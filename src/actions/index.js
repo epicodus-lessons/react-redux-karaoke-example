@@ -21,7 +21,7 @@ export function fetchSongId(title) {
     const localSongId = v4();
     dispatch(requestSong(title, localSongId));
     title = title.replace(' ', '_');
-    return fetch('http://api.musixmatch.com/ws/1.1/track.search?&q_track=' + title + '&page_size=1&s_track_rating=desc&apikey=YOUR-API-KEY-HERE').then(
+    return fetch('http://api.musixmatch.com/ws/1.1/track.search?&q_track=' + title + '&page_size=1&s_track_rating=desc&apikey=dccdbcd14f8c0b3b7636e280b4df7b9f').then(
       response => response.json(),
       error => console.log('An error occurred.', error)
     ).then(function(json) {
