@@ -44,7 +44,7 @@ describe('Karaoke App', () => {
         songArray: action.songArray,
         arrayPosition: 0
       };
-      expect(songsById(initialState.songsById, action)[action.songId])
+      expect(lyricChangeReducer(initialState.songsById, action)[action.songId])
       .toEqual(newObject);
     });
 
