@@ -51,3 +51,12 @@ export function fetchLyrics(title, artist, musicMatchId, localSongId, dispatch) 
     console.log('HEY WOW, A SECOND API RESPONSE!', json);
   });
 }
+
+export const receiveSong = (title, artist, songId, songArray) => ({
+  type: types.RECEIVE_SONG,
+  songId,
+  title,
+  artist,
+  songArray,
+  receivedAt: Date.now()
+});
