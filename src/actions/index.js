@@ -25,7 +25,14 @@ export function fetchSongId(title) {
       response => response.json(),
       error => console.log('An error occurred.', error)
     ).then(function(json) {
-      console.log('CHECK OUT THIS SWEET API RESPONSE:', json);
+      if (json.message.body.track_list.length > 0) {
+        const musicMatchId = json.message.body.track_list[0].track.track_id;
+        const artist = json.message.body.track_list[0].track.artist_name;
+        const title = json.message.body.track_list[0].track.track_name;
+        fetchLyrics(title, artist, musicMatchId, localSongId, dispatch);
+      } else {
+        console.log('We couldn\'t locate a song under that ID!');
+      }
     });
   };
 }
