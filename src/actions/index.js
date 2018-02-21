@@ -29,3 +29,9 @@ export function fetchSongId(title) {
     });
   };
 }
+
+export const requestSong = (title, localSongId) => ({
+  type: types.REQUEST_SONG,
+  title,
+  songId: localSongId
+});
