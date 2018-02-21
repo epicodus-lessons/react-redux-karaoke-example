@@ -6,7 +6,6 @@ import { nextLyric, restartSong } from './../actions';
 const SongDisplay = ({ dispatch, song }) => {
   const { title, artist, songArray, arrayPosition, id } = song;
   const currentLine = songArray[arrayPosition];
-  let action;
   return (
     <div>
       <h1>{title}</h1>

@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { restartSong, changeSong } from './../actions';
 
 const SongList = ({ dispatch, songList }) => {
-  let action;
   return (
     <div>
       <em>Or select from our list:</em>
