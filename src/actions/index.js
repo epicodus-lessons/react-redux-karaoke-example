@@ -42,3 +42,12 @@ export const requestSong = (title, localSongId) => ({
   title,
   songId: localSongId
 });
+
+export function fetchLyrics(title, artist, musicMatchId, localSongId, dispatch) {
+  return fetch('http://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=' + musicMatchId + '&apikey=dccdbcd14f8c0b3b7636e280b4df7b9f').then(
+    response => response.json(),
+    error => console.log('An error occured.', error)
+  ).then(function(json) {
+    console.log('HEY WOW, A SECOND API RESPONSE!', json);
+  });
+}
