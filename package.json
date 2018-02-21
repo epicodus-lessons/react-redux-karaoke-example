@@ -12,10 +12,12 @@
   "author": "Tyler Suderman",
   "license": "ISC",
   "dependencies": {
+    "isomorphic-fetch": "^2.2.1",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.6",
-    "redux": "^3.7.2"
+    "redux": "^3.7.2",
+    "uuid": "^3.1.0"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
