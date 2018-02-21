@@ -14,7 +14,7 @@ function SongSearch({ dispatch }){
         }
         dispatch(fetchSongId(input.value.trim()));
         // ...we'll add more custom logic here later...
-        console.log('SEARCHED ARTIST:');
+        console.log('SEARCHED TITLE:');
         console.log(input.value.trim());
         //...instead of these console.log()s....
         input.value = '';
